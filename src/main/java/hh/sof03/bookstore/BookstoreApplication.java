@@ -18,9 +18,17 @@ public class BookstoreApplication {
 	@Bean
 	public CommandLineRunner demo(BookRepository repository) {
 		return (args) -> {
-			repository.save(new Book("Hobitti : eli Sinne ja takaisin", "J. R. R. Tolkien", 2024, "9789510468524", 27.90));
+			repository.save(
+					new Book("Hobitti : eli Sinne ja takaisin", "J. R. R. Tolkien", 2024, "9789510468524", 27.90));
 			repository.save(new Book("JAVA-OHJELMOINTI + CD", "Kyppö Jorma", 2008, "9789521413568", 51.00));
-			repository.save(new Book("Spring Boot 3 and Spring Framework 6", "Christian Ullenboom", 2024, "9781493224753", 55.90));
+			repository.save(new Book("Spring Boot 3 and Spring Framework 6", "Christian Ullenboom", 2024,
+					"9781493224753", 55.90));
+
+			System.out.println("Customers found with findAll():");
+			System.out.println("-------------------------------");
+			repository.findAll().forEach(book -> {
+				System.out.println(book.toString());
+			});
 		};
 	}
 }
