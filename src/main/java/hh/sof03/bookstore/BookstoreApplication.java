@@ -24,7 +24,7 @@ public class BookstoreApplication {
 			repository.save(new Book("Spring Boot 3 and Spring Framework 6", "Christian Ullenboom", 2024,
 					"9781493224753", 55.90));
 
-			System.out.println("Customers found with findAll():");
+			System.out.println("Books found with findAll():");
 			System.out.println("-------------------------------");
 			repository.findAll().forEach(book -> {
 				System.out.println(book.toString());
