@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add book</title>
+    <title>Edit book</title>
 </head>
 
 <body>
-    <h1>Add book</h1>
+    <h1>Edit book</h1>
     <div>
-        <form th:object="${book}" th:action="@{save}" action="#" method="post">
+        <form th:object="${book}" th:action="@{../save}" action="#" method="post">
+            <input type="hidden" th:field="*{id}">
             <label for="author">Author: </label>
             <input type="text" id="author" th:field="*{author}" /> <br>
             <label for="title">Title: </label>
@@ -25,5 +26,3 @@
         </form>
     </div>
 </body>
-
-</html>
