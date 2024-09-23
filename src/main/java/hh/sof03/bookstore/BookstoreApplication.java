@@ -23,15 +23,18 @@ public class BookstoreApplication {
 	@Bean
 	public CommandLineRunner demo(BookRepository bookrepo, CategoryRepository categoryrepo) {
 		return (args) -> {
-			categoryrepo.save(new Category("Fiction"));
-			categoryrepo.save(new Category("Textbook"));
-			categoryrepo.save(new Category("Scifi"));
+			Category c1 = new Category("Fiction");
+			categoryrepo.save(c1);
+			Category c2 = new Category("Textbook");
+			categoryrepo.save(c2);
+			Category c3 = new Category("Scifi");
+			categoryrepo.save(c3);
 
 			bookrepo.save(
-					new Book("Hobitti : eli Sinne ja takaisin", "J. R. R. Tolkien", 2024, "9789510468524", 27.90));
-			bookrepo.save(new Book("JAVA-OHJELMOINTI + CD", "Kyppö Jorma", 2008, "9789521413568", 51.00));
+					new Book("Hobitti : eli Sinne ja takaisin", "J. R. R. Tolkien", 2024, "9789510468524", 27.90, c1));
+			bookrepo.save(new Book("JAVA-OHJELMOINTI + CD", "Kyppö Jorma", 2008, "9789521413568", 51.00, c2));
 			bookrepo.save(new Book("Spring Boot 3 and Spring Framework 6", "Christian Ullenboom", 2024,
-					"9781493224753", 55.90));
+					"9781493224753", 55.90, c2));
 
 			log.info("Categories found with findAll()");
 			categoryrepo.findAll().forEach(category -> {
